@@ -41,7 +41,7 @@ function convertToArab(romanNumber) {
     let result = 0;
     let prevValue = 0;
 
-    romanNumber = romanNumber.toUpperCase().split('').reverse().join('');
+    romanNumber = romanNumber.toUpperCase().split('').join('');
 
     for (let i = romanNumber.length - 1; i >= 0; i--) {
       const currentRoman = romanNumber[i];
