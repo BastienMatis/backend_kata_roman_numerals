@@ -4,19 +4,9 @@ const { convertToRoman, convertToArab } = require('./functions/convertNumerals')
 
 const app = express();
 
-const allowedOrigins = ['https://gentle-axolotl-aca312.netlify.app'];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://backend-kata-roman-numerals-9914083f65a4.herokuapp.com/',
+}));
 app.use(express.json());
 
 app.get('/home', (req, res) => {
