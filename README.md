@@ -1,3 +1,3 @@
-nodemon index.js
+npm start
 
-node version v16.15.0
+node.js version 9.4.0

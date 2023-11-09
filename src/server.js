@@ -19,9 +19,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use(cors(corsOptions));
-app.use(express.json());
-
 app.get('/home', (req, res) => {
   const { romanNumber } = req.query;
     res.json({ home: convertToArab(romanNumber) });
