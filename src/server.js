@@ -4,20 +4,10 @@ const { convertToRoman, convertToArab } = require('./functions/convertNumerals')
 
 const app = express();
 
-const allowedOrigins = ['https://gentle-axolotl-aca312.netlify.app'];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+app.use(cors({
+  origin: 'https://gentle-axolotl-aca312.netlify.app',
   credentials: true,
-};
-
-app.use(cors(corsOptions));
+}));
 app.use(express.json());
 
 app.get('/home', (req, res) => {
