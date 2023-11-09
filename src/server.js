@@ -4,14 +4,9 @@ const { convertToRoman, convertToArab } = require('./functions/convertNumerals')
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', 'true');
-  // ... set other CORS headers as needed
-  next();
-});
 
 app.use(cors({
-  origin: 'https://backend-kata-roman-numerals-9914083f65a4.herokuapp.com/',
+  origin: 'https://backend-kata-roman-numerals-9914083f65a4.herokuapp.com/', 'true',
 }));
 app.use(express.json());
 
