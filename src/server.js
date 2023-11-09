@@ -20,8 +20,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get('/home', (req, res) => {
-  const { romanNumber } = req.query;
-    res.json({ home: convertToArab(romanNumber) });
+  const { romanNumber, arabNumber } = req.query;
+    res.json({ home: convertToArab(romanNumber) && convertToRoman(arabNumber) });
 });
 
 
