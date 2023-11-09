@@ -25,39 +25,48 @@ function convertToRoman(num) {
   return roman;
 }
 
-// romanNumber is a string
 function convertToArab(romanNumber) {
   const romanNumerals = {
-      O: 0,
-      I: 1,
-      V: 5,
-      X: 10,
-      L: 50,
-      C: 100,
-      D: 500,
-      M: 1000,
-    };
+    O: 0,
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
 
-    let result = 0;
-    let prevValue = 0;
+  let result = 0;
+  let prevValue = 0;
+  let repeatCount = 1;
 
-    romanNumber = romanNumber.toUpperCase().split('').join('');
+  romanNumber = romanNumber.toUpperCase();
 
-    for (let i = romanNumber.length - 1; i >= 0; i--) {
-      const currentRoman = romanNumber[i];
-      const currentValue = romanNumerals[currentRoman];
+  for (let i = romanNumber.length - 1; i >= 0; i--) {
+    const currentRoman = romanNumber[i];
+    const currentValue = romanNumerals[currentRoman];
 
-      if (currentValue < prevValue) {
-        result -= currentValue;
-      } else {
-        result += currentValue;
+    if (currentValue < prevValue) {
+      result -= currentValue;
+      repeatCount = 1;
+    } else if (currentValue === prevValue) {
+      repeatCount++;
+      if (repeatCount > 3) {
+        return NaN;
       }
-
-      prevValue = currentValue;
+      result += currentValue;
+    } else {
+      result += currentValue;
+      repeatCount = 1;
     }
 
-    return result;
-  };
+    prevValue = currentValue;
+  }
+
+  return result;
+}
+
 
 module.exports = {
   convertToRoman,

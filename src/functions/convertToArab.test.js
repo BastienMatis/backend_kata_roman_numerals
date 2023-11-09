@@ -23,3 +23,10 @@ test('Convert roman numbers to arab numbers - Invalid string', () => {
   expect(convertToArab('123')).toBe(NaN);
   expect(convertToArab('Invalid')).toBe(NaN);
 });
+
+test('Convert roman numbers to arab numbers - more than 3 times the same letter', () => {
+    expect(convertToArab('IIII')).toBe(NaN);
+    expect(convertToArab('XXXX')).toBe(NaN);
+    expect(convertToArab('CCCC')).toBe(NaN);
+    expect(convertToArab('MMMM')).toBe(NaN);
+});
