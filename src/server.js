@@ -10,7 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/home', (req, res) => {
-    res.json({ home: convertToRoman });
+  const { romanNumber } = req.query;
+    res.json({ home: convertToArab(romanNumber) });
 });
 
 

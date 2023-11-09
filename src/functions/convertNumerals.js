@@ -25,6 +25,7 @@ function convertToRoman(num) {
   return roman;
 }
 
+// romanNumber is a string
 function convertToArab(romanNumber) {
   const romanNumerals = {
       O: 0,
@@ -39,6 +40,8 @@ function convertToArab(romanNumber) {
 
     let result = 0;
     let prevValue = 0;
+
+    romanNumber = romanNumber.toUpperCase().split('').reverse().join('');
 
     for (let i = romanNumber.length - 1; i >= 0; i--) {
       const currentRoman = romanNumber[i];
